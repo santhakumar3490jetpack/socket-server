@@ -53,6 +53,11 @@ io.on('connection', (socket) => {
     // Emit an event to the client
     socket.emit('studentUpdated', { message: 'Student data updated' });
 
+    // Optionally, emit the event after some delay for testing
+    setTimeout(() => {
+        socket.emit('studentUpdated', { message: 'Delayed student data update' });
+    }, 2000); 
+
     // Handle disconnections
     socket.on('disconnect', () => {
         console.log('Client disconnected');
